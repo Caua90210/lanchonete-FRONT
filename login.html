@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./style/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Italiana&display=swap" rel="stylesheet">
+    <!-- <script type="module" src="./js/login.js" defer></script> -->
+     <script>
+      tailwind.config = {
+        theme: {
+          fontFamily: {
+              
+              'fontPrincipal': ['Italiana', 'sans-serif']
+  },
+          extend: {
+            colors: {
+              clifford: '#da373d',
+            }
+          }
+        }
+      }
+    </script>
+    <title>Login</title>
+</head>
+<body class="h-screen w-screen">
+    <header class="flex">
+
+      <div class="">
+        <div class="ribbon"><span>ㅤ</span></div>
+     </div>
+    
+
+        <div class="w-9/12 flex flex-col items-center">
+            <h1 class="justify-center w-full text-center mt-28  pb-28 font-fontPrincipal text-8xl mb-16">Sabor & Prazer</h1>
+
+            <div class="w-4/12 h-72  flex justify-center items-end flex-col" id="login-form">
+                
+              <div class="flex flex-col">
+                <h2 class="pb-4 font-bold">Login</h2>
+                <input class="bg-[#FAFAFA] h-[52px] w-[537px] shadow-lg  rounded-[30px] mb-10 pl-6" placeholder="Digite seu email..." type="email" name="" id="email">
+
+                <h2 class="pb-4 font-bold">Senha</h2>
+                <input class="bg-[#FAFAFA] h-[52px] w-[537px] shadow-lg rounded-[30px] pl-6" placeholder="Digite sua senha..." type="password" name="" id="senha">
+              </div>
+              <div class="inline-flex gap-x-2 mt-2" >
+                <h3 class="">Não tem uma conta?</h3>
+                <a href="./pages/cadastro.html">Cadastrar</a>
+            </div>
+            
+            
+            <button class="bg-[#A2C91F] w-[161px] py-[10px] rounded-[20px] text-white mt-4" onclick="login()">Entrar</button>
+
+              
+            </div>
+        </div>
+
+        <img class="h-screen ml-14" src="./img/img decoracao (1).svg" alt="">
+    </header>
+    <script>
+      function login() {
+          var email = document.getElementById("email").value;
+          var senha = document.getElementById("senha").value;
+
+   
+          var url = "http://localhost:8080/v1/lanchonete/cliente";
+
+         
+          fetch(url)
+          .then(response => response.json())
+          .then(data => {
+   
+              var cliente = data.cliente.find(user => user.email === email && user.senha === senha);
+              if (cliente) {
+                
+                  window.location.href = "./home.html";
+              } else {
+                  alert("Email ou senha incorretos");
+              }
+          })
+          .catch(error => console.error('Erro ao fazer login:', error));
+      }
+  </script>
+
+    
+</body>
+</html>

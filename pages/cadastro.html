@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Italiana&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style/styleCadastro.css">
+     <script>
+      tailwind.config = {
+        theme: {
+          fontFamily: {
+              
+              'fontPrincipal': ['Italiana', 'sans-serif']
+  },
+          extend: {
+            colors: {
+              clifford: '#da373d',
+            }
+          }
+        }
+      }
+    </script>
+    <title>Cadastro</title>
+</head>
+<body class="h-screen w-screen">
+    <header class="flex">
+        
+      <div class="">
+        <div class="ribbon"><span>ㅤ</span></div>
+     </div>
+
+        <img class="h-screen" src="../img/img decoracao (1).svg" alt="">
+    
+        <div class="w-9/12 flex flex-col items-center">
+            <h1 class="w-full text-center mt-28 pb-28 font-fontPrincipal text-8xl mb-16">Sabor & Prazer</h1>
+
+            <div class="w-4/12 h-72 flex justify-center pr items-end flex-col ml-20">
+                
+              <div class="flex flex-col">
+                
+                <h2 class="pb-2 font-bold">Nome</h2> 
+                <input class="bg-[#FAFAFA] h-[52px] w-[537px] shadow-lg  rounded-[30px] mb-4 pl-6" placeholder="Digite seu nome..." type="email" name="" id="nome">
+
+                <h2 class="pb-2 font-bold">Login</h2>
+                <input class="bg-[#FAFAFA] h-[52px] w-[537px] shadow-lg  rounded-[30px] mb-4 pl-6" placeholder="Digite seu email..." type="email" name="" id="email">
+
+                <h2 class="pb-2 font-bold">Número</h2>
+                <input class="bg-[#FAFAFA] h-[52px] w-[537px] shadow-lg rounded-[30px] mb-4 pl-6" placeholder="Digite sua senha..." type="password" name="" id="numero">
+
+                <h2 class="pb-2 font-bold">Senha</h2>
+                <input class="bg-[#FAFAFA] h-[52px] w-[537px] shadow-lg rounded-[30px] mb-4 pl-6" placeholder="Digite sua senha..." type="password" name="" id="senha">
+
+              </div>
+              
+              <div class="inline-flex gap-x-2 mt-2" >
+                <h3 class="">Já tem uma conta?</h3>
+                <a href="../login.html">Login</a>
+            </div>
+            
+            
+            <button class="bg-[#A2C91F] w-[161px] py-[10px] rounded-[20px] text-white mt-4">Cadastrar</button>
+
+              
+            </div>
+        </div>
+
+        
+    </header>
+    <main>
+       
+    </main>
+    <footer>
+
+
+    </footer>
+
+    
+</body>
+</html>
