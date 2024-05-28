@@ -8,7 +8,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Italiana&display=swap" rel="stylesheet">
-    <!-- <script type="module" src="./js/login.js" defer></script> -->
      <script>
       tailwind.config = {
         theme: {
@@ -76,7 +75,7 @@
               var cliente = data.cliente.find(user => user.email === email && user.senha === senha);
               if (cliente) {
                 
-                  window.location.href = "./home.html";
+                  window.location.href = "./pages/home.html";
               } else {
                   alert("Email ou senha incorretos");
               }

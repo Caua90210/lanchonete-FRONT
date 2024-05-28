@@ -7,12 +7,17 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Italiana&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Azeret+Mono:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <script src="../js/home.js" defer type="module"></script>
      <script>
       tailwind.config = {
         theme: {
           fontFamily: {
               
-              'fontPrincipal': ['Italiana', 'sans-serif']
+              'fontPrincipal': ['Italiana', 'sans-serif'],
+              'fontSecundaria': ['Azeret Mono', 'monospace']
   },
           extend: {
             colors: {
@@ -22,13 +27,31 @@
         }
       }
     </script>
-    <title>Login</title>
+    <title>Home</title>
 </head>
-<body>
+<body class="w-screen">
     <header>
         <div>
             <h1 class="font-fontPrincipal text-2xl">Sabor & Prazer</h1>
         </div>
         
     </header>
+    <main class="h-1/2 mb-28">
+      <div id="categorias">
+
+      </div>
+
+      <div id="container" class="flex pt-60">
+
+      </div>
+    </main>
+
+    <footer class="h-60 w-full bg-[#60AC25] flex items-end">
+      <div class="h-full w-4/12">
+        
+      </div>
+      <div>
+
+      </div>
+    </footer>
 </body>
