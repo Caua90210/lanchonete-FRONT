@@ -26,7 +26,7 @@ function criarCard(produto) {
     nome.classList.add('text-3xl', 'font-bold', 'text-gray-900', 'mb-2', 'text-center', 'font-fontPrincipal');
     const valor = document.createElement('p');
     valor.textContent = `R$ ${produto.valor.toFixed(2)}`;
-    valor.classList.add('text-end', 'mb-4', 'mr-4', 'text-[#60AC25]', 'text-2xl', 'font-fontPrincipal');
+    valor.classList.add('text-end','font-bold' , 'mb-4', 'mr-4', 'text-[#60AC25]', 'text-2xl', 'font-fontPrincipal');
     const foto = document.createElement('img');
     foto.src = produto.foto;
     foto.classList.add('w-96', 'h-full', 'bg-cover', 'rounded-lg', 'mb-2');

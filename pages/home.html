@@ -29,29 +29,73 @@
     </script>
     <title>Home</title>
 </head>
-<body class="w-screen">
+<body class="w-full">
     <header>
-        <div>
-            <h1 class="font-fontPrincipal text-2xl">Sabor & Prazer</h1>
+      
+      <img class="fixed w-full z-[-1]" src="../img/bg.png" alt="">
+
+      <div class="fixed z-[-1] w-full h-[140px] "></div>
+        <div class="pt-[60px] gap-[70%] flex ">
+            <h1 class="font-fontPrincipal pl-[100px] text-[50px]">Sabor & Prazer</h1>
+            <a href="./perfil.html"  >
+              <img class="h-[50px]" src="../img/iconPerfil.png" alt="Icon perfil">
+            </a>
         </div>
         
-    </header>
-    <main class="h-1/2 mb-28">
-      <div id="categorias">
 
+        <div class="pt-[70px]">
+        <div class="absolute left-[33%]">
+          <!-- <form action="#" method="GET"> -->
+           <input type="text" id="search" name="search" class="w-[600px] px-3 py-2 border rounded-md"
+           placeholder="Pesquise aqui...">
+           <img src="../img/lupa.png" alt="lupa de pesquisa" >
+        </div>
+              
+        <div class="absolute pt-[60px] flex left-[42%] gap-[40px] text-[20px] italic font-mono" id="categorias"></div>
       </div>
 
+    </header>
+
+    <main class="h-1/2 mb-28">
+
+      <div class="absolute pt-[170px] pl-[43%]">
+        <p class="font-fontPrincipal text-[#60AC25] text-[30px]">Promoções do dia</p>
+      </div>
+      
+      
       <div id="container" class="flex pt-60">
 
       </div>
     </main>
 
-    <footer class="h-60 w-full bg-[#60AC25] flex items-end">
-      <div class="h-full w-4/12">
-        
-      </div>
-      <div>
+    <footer class="h-[200px] w-full bg-[#60AC25] flex justify-between z-[-1] ">
 
+      <div class="flex items-center pl-28  ">
+        <img class="h-[50px] w-[120px]" src="../img/logo.png" alt="">
       </div>
+
+      <div class="flex items-center pl-[15px]">
+        <img src="../img/info.png" alt="" class="">
+      </div>
+
+      <div class="flex items-center pl-[15px]">
+        <img src="../img/info2.png" alt="" class="">
+      </div>
+
+      
+      <div class="flex  justify-end items-end flex-col pr-28 pb-6 ">
+        <a href="">
+          <img src="../img/insta.png" alt="Logo insta" class="h-14 pr-[2px]">
+      </a>
+        <a href="">
+          <img src="../img/face.png" alt="Logo face" class="pr-2 pb-2">
+      </a>
+        <a href="">
+          <img src="../img/tiktok.png" alt="Logo tiktok" class="pr-4">
+      </a>
+      </div>
+        
+    
+     
     </footer>
 </body>
