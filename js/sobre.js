@@ -7,7 +7,7 @@ const indice = new URLSearchParams(window.location.search).get('id');
 const infoProduto = await getProdutosID(indice)
 console.log(infoProduto)
 
-const comprar = document.getElementById
+const comprar = document.getElementById('comprar')
 
 function preencherCampos(produto){
     const nome = document.getElementById('nome')
@@ -33,5 +33,10 @@ function preencherCampos(produto){
     }  
     
     }
+
+    comprar.addEventListener('click', ()=>{
+        window.location.href='./carrinho.html'
+    })
+
 preencherCampos(infoProduto)
 
