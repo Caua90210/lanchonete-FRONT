@@ -3,10 +3,21 @@
 import { getProdutos } from "./model/produto.js";
 import { getCategorias } from "./model/categoria.js";
 
+let id = localStorage.getItem('idCliente')
+console.log(id);
+
+export async function getCliente(){
+    const url = `http://localhost:8080/v1/lanchonete/cliente/`
+    const response = await fetch(url)
+    const data = await response.json()
+    return data.cliente
+}
+
 console.table(await getCategorias());
 
 const container = document.getElementById('container');
 const categoriaContainer = document.getElementById('categorias');
+const perfil  = document.getElementById('perfil')
 
 function cardCategorias(categoria) {
     const card = document.createElement('div');
@@ -36,6 +47,12 @@ function criarCard(produto) {
         window.location.href='./sobre.html?id='+produto.id_produto
     })
 }
+
+perfil.addEventListener('click', ()=>{
+    let id = localStorage.getItem('idCliente')
+    console.log(id);
+    window.location.href='./perfil.html?id='+id
+} )
 
 async function preencherContainer() {
     const produtos = await getProdutos();

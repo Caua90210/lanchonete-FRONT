@@ -16,3 +16,4 @@ export async function getProdutosID(id){
     console.log(data);
     return data.produto[0]
 }
+

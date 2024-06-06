@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../js/perfil.js" type="module" defer></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Italiana&display=swap" rel="stylesheet">
+     <script>
+      tailwind.config = {
+        theme: {
+          fontFamily: {
+              
+              'fontPrincipal': ['Italiana', 'sans-serif']
+  },
+          extend: {
+            colors: {
+              clifford: '#da373d',
+            }
+          }
+        }
+      }
+    </script>
+    <title>Perfil</title>
+</head>
+<body>
+    <header class="fixed w-full  pt-[100px] flex justify-center items-center  h-[180px] bg-[#60AC25] z-[-1]">
+
+       
+        <div class="fixed bg-gray-300 rounded-full w-[200px] h-[200px] flex items-center justify-center relative overflow-hidden">
+            <img id="profileImage" class="w-full h-full object-cover" src="https://via.placeholder.com/200" alt="Profile Picture">
+            <input type="file" id="fileInput" class="absolute top-0 left-0 w-full h-full opacity-0 cursor-pointer" accept="image/*" onchange="loadFile(event)">
+            <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 opacity-0 hover:opacity-100 transition-opacity">
+                <span class="text-white">Click to upload</span>
+            </div>
+        </div>
+    
+        <script>
+            function loadFile(event) {
+                const profileImage = document.getElementById('profileImage');
+                profileImage.src = URL.createObjectURL(event.target.files[0]);
+            }
+        </script>
+
+       
+        
+    </header>
+   
+    <main class="fixed top-[400px] pl-[300px]  flex w-full ">
+
+        <div class="">
+            <h1 class="fixed top-[300px] left-[865px] text-2xl">Dados de cadastro</h1>
+           </div>   
+
+        <div class="flex flex-col ">
+            <input class="border-2 mb-[40px] pl-[10px] rounded-[15px] h-[50px] w-[400px]" type="text" name="" id="nome">
+            <input class="border-2 mb-[40px] pl-[10px] rounded-[15px] h-[50px] w-[400px]" type="email" name="" id="email">
+            <input class="border-2 mb-[40px] pl-[10px] rounded-[15px] h-[50px] w-[400px]" type="text" name="" id="telefone">
+            <input class="border-2 mb-[40px] pl-[10px] rounded-[15px] h-[50px] w-[400px]"  type="password" name="" id="senha">
+        </div>
+
+        <div class="flex flex-col ml-[500px] gap-[10px]">
+            <input class="border-2" type="text" id="cidade">
+            <input class="border-2" type="text" id="cep">
+            <input class="border-2" type="text" id="rua">
+            <input class="border-2" type="text" id="bairro">
+            <input class="border-2" type="text" id="numero">
+            <input class="border-2" type="text" id="complemento">
+        </div>
+
+    </main>
+</body>
+</html>

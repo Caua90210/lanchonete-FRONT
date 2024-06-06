@@ -74,7 +74,8 @@
    
               var cliente = data.cliente.find(user => user.email === email && user.senha === senha);
               if (cliente) {
-                
+                console.log(cliente);
+                localStorage.setItem('idCliente', cliente.id_cliente)
                   window.location.href = "./pages/home.html";
               } else {
                   alert("Email ou senha incorretos");

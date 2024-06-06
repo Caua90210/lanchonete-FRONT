@@ -33,9 +33,13 @@
 </head>
 <body>
 
-    <header class="w-full ">
+    <header class="w-full flex  justify-center items-center">
 
-        <div class="absolute justify-center items-center top-[30px]">
+      <div class="fixed top-[100px] left-[50px]">
+        <a class="font-fontPrincipal text-[25px]" href="./home.html">Voltar</a>
+      </div>
+
+        <div class="fixed top-[30px]">
             <h1 class="font-fontPrincipal text-[40px] font-bold">Sabor & Prazer</h1>
         </div>
         
@@ -43,19 +47,44 @@
 
    <main>
 
-    <div >
+    <div class="fixed left-[1365px] top-[350px]" id="infor">
 
-        <div class="">
-            <h1 class="font-fontPrincipal" id="nome"></h1>
+     
+
+        <div class="fixed left-[1425px] top-[340px]' ">
+          <p class="" id="ingredientes"></p>
         </div>
         
 
-        <img id="foto" src="" alt="">
 
-        <p id="valor"></p>
 
     </div>
 
+    <div class="fixed top-[38%] w-[600px] flex justify-center items-center ">
+      <h1 class="font-fontPrincipal text-[25px] font-semibold" id="nome"></h1>
+  </div>
+  
+
+  <div class="fixed w-full  top-[28%] flex justify-center items-center" >
+  <img class="w-[330px] h-[300px] shadow-lg rounded-full " id="foto" src="" alt="">
+</div>
+
+
+  <div class="absolute w-full flex flex-col top-[300px] justify-center items-end pr-[350px]">
+    <p class="text-[20px] pr-[50px] font-fontPrincipal font-semibold">Ingredientes</p>
+    <hr class="w-[200px]">
+  </div>
+
    </main>
+
+   <footer class="flex justify-center items-center">
+
+    <div class="fixed gap-[5px] font-fontPrincipal  text-white bottom-[250px] w-[200px] h-[50px] rounded-full flex justify-center items-center bg-[#60AC25]">
+      <p id="valor"></p>
+      <hr class="w-[40px]">
+      <a href="" id="comprar">COMPRAR</a>
+    </div>
+
+   </footer>
 </body>
 </html>

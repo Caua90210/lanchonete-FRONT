@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Italiana&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="./wishcar.js" type="module" defer></script>
+    <script>
+        tailwind.config = {
+          theme: {
+            extend: {
+              colors: {
+                clifford: '#da373d',
+              },
+              fontFamily:{
+                body: ['Italiana','sans-serif']
+              }
+            }
+          }
+        }
+      </script>
+    <title>Carrinho</title>
+</head>
+<body class="bg-gradient-to-b from-[#60AC25] to-white">
+    
+
+  
+    <header>
+        <div class="pt-10 pl-10">
+            <h1 class="font-body text-6xl" >Sabor & Prazer</h1>
+        </div>
+    </header>
+    <main class="flex flex-col justify-center items-center pt-28">
+        <div class="flex flex-col">
+            <div class="flex gap-x-[410px] text-4xl" >
+                <p>Produtos</p>
+                <p>Valor Total</p>
+            </div>
+            <div class="flex gap-x-[530px] pt-10 text-4xl">
+                <div class="flex flex-col gap-[16px]" id="paiInfos"></div>
+                <p id="valor_total">300</p>
+            </div>
+        </div>
+        <section class="flex gap-x-80">
+
+        
+         <div class="flex flex-col gap-[20px] pt-[80px] pr-[600px] pb-2">
+                     <h1 class="text-[25px]">Cupom de Desconto</h1>
+                     <input type="number" id="desc" class="w-full bg-[#60AC25] p-3 rounded-lg bg-white" placeholder="Digite algo...">
+
+                     
+                     <button class="pt-[10px] rounded-full text-2xl bg-[#60AC25]" id="desconto">Aplicar</button>
+                     <h1 class="text-4xl pt-[10px]">Prazo de Entrega</h1>
+                     <p></p>
+                    <button class="px-10 py-6 text-white bg-[#60AC25] rounded-lg text-4xl">Continuar</button>
+        </div>
+        <div class="flex flex-col gap-[20px] px-28 py-10 mb-80 rounded-lg  bg-white shadow-md">
+            <h1 class="text-[25px] font-bold text-center">Resumo</h1>
+            <p >valor dos produtos:</p>
+            <p>Frete: R$5.00</p>
+            <p>Descontos: </p>
+        </div>
+      </section>
+    </main>
+</body>
+</html>
