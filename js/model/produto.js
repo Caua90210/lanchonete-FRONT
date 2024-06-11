@@ -17,3 +17,62 @@ export async function getProdutosID(id){
     return data.produto[0]
 }
 
+export async function createPedido(id_c, id_p, dados) {
+    console.log(dados);
+    
+    const url = `http://localhost:8080/v1/lanchonete/pedidos/${id_c}/${id_p}`;
+    
+    const options = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body : JSON.stringify(dados)
+    };
+    try {
+        const response = await fetch(url, options);
+        const responseData = await response.json();
+
+        if (response.ok) {
+            // Verifica se o pedido foi criado com sucesso
+            if (responseData.status && responseData.status_code === 201 && responseData.pedido.length > 0) {
+                // Retorna o ID do pedido criado
+                return responseData.pedido[0].id_pedido;
+            } else {
+                throw new Error(responseData.message || 'Erro ao criar pedido');
+            }
+        } else {
+            throw new Error('Erro ao criar pedido - status ' + response.status);
+        }
+    } catch (error) {
+        throw new Error('Erro ao enviar solicitação: ' + error.message);
+    }
+}
+
+
+export async function addCarrinho(id_pe, id_p, id_c) {
+    const url = `http://localhost:8080/v1/lanchonete/carrinho/${id_pe}/${id_p}/${id_c}`;
+    
+    const options = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+    };
+
+    try {
+        const response = await fetch(url, options);
+        console.log(response);
+        if (response.ok) {
+            console.log('Item adicionado ao carrinho com sucesso!');
+        } else {
+            console.error('Falha ao adicionar item ao carrinho.');
+        }
+    } catch (error) {
+        console.error('Erro ao enviar solicitação:', error);
+    }
+}
+
+
+
+

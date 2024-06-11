@@ -18,6 +18,7 @@ console.table(await getCategorias());
 const container = document.getElementById('container');
 const categoriaContainer = document.getElementById('categorias');
 const perfil  = document.getElementById('perfil')
+const carrinho = document.getElementById('carrinho')
 
 function cardCategorias(categoria) {
     const card = document.createElement('div');
@@ -54,6 +55,11 @@ perfil.addEventListener('click', ()=>{
     window.location.href='./perfil.html?id='+id
 } )
 
+carrinho.addEventListener('click', ()=>{
+    let id = localStorage.getItem('idCliente')
+    window.location.href='./carrinho.html?id='+id
+})
+
 async function preencherContainer() {
     const produtos = await getProdutos();
     produtos.forEach(produto => {
@@ -67,6 +73,8 @@ async function preencherContainerCategoria() {
         cardCategorias(categoria);
     });
 }
+
+
 
 preencherContainer();
 preencherContainerCategoria();

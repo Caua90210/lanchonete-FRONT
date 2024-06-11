@@ -1,9 +1,11 @@
 'use strict'
 
-import {getProdutosID} from "./model/produto.js"
+import {getProdutosID, createPedido, addCarrinho} from "./model/produto.js"
+// import { getCarrinho } from "./carrinho1.js"
 
 const indice = new URLSearchParams(window.location.search).get('id');
 
+// const infoPedido = await getCarrinho()
 const infoProduto = await getProdutosID(indice)
 console.log(infoProduto)
 
@@ -32,11 +34,45 @@ function preencherCampos(produto){
         ingrediente.classList.add( 'flex', 'flex-col')
     }  
     
-    }
+}
 
-    comprar.addEventListener('click', ()=>{
-        window.location.href='./carrinho.html'
-    })
+
+
+comprar.addEventListener('click', async () => {
+        try {
+            let idC = localStorage.getItem('idCliente')
+            let ue = parseInt(idC)
+
+            
+            // const idPedido = infoPedido[0].id_pedido
+            const idProduto = parseInt(infoProduto.id_produto)
+
+
+            const idCliente = idC;    
+            const dataPedido = "2024-06-11";
+            const tempoEntrega = "00:20:00";
+            const taxaEntrega = 20;
+    
+
+               
+            
+
+           let idPossivel = await createPedido(idCliente, idProduto, {
+                data_pedido: dataPedido,
+                tempo_entrega: tempoEntrega,
+                taxa_entrega: taxaEntrega
+            })
+            console.log(idPossivel);
+            
+            await addCarrinho(idPossivel, idProduto, ue);
+            
+            console.log(addCarrinho);
+            
+            //window.location.href = './home.html';
+        } catch (error) {
+            // console.error('Erro ao comprar:', error);
+        }
+    });
 
 preencherCampos(infoProduto)
 

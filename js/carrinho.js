@@ -1,6 +1,7 @@
 'use strict'
 import { getCarrinho } from "./carrinho1.js"
-let c = await getCarrinho(2)
+
+let c = await getCarrinho(1)
 const valorTL = document.getElementById('valor_total')
 
 console.log(c);
@@ -30,7 +31,7 @@ function cardProduto(produto) {
 }
 
 async function preencherProduto() {
-    const produtos = await getCarrinho(2);
+    const produtos = await getCarrinho(1);
     produtos.forEach(produto => {
         cardProduto(produto);
     });
