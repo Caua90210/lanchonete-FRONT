@@ -62,9 +62,10 @@ comprar.addEventListener('click', async () => {
                 tempo_entrega: tempoEntrega,
                 taxa_entrega: taxaEntrega
             })
+            let idPedido = parseInt(idPossivel)
             console.log(idPossivel);
             
-            await addCarrinho(idPossivel, idProduto, ue);
+            await addCarrinho(idPedido, idProduto, ue);
             
             console.log(addCarrinho);
             
@@ -74,5 +75,5 @@ comprar.addEventListener('click', async () => {
         }
     });
 
-preencherCampos(infoProduto)
+preencherCampos(infoProduto)     
 

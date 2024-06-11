@@ -1,8 +1,11 @@
 'use strict'
 import { getCarrinho } from "./carrinho1.js"
 
-let c = await getCarrinho(1)
+let id = localStorage.getItem('idCliente')
+let c = await getCarrinho(id)
 const valorTL = document.getElementById('valor_total')
+
+const continuar = document.getElementById('continuar')
 
 console.log(c);
 let valorTotal = 5
@@ -31,11 +34,15 @@ function cardProduto(produto) {
 }
 
 async function preencherProduto() {
-    const produtos = await getCarrinho(1);
+    const produtos = await getCarrinho(id);
     produtos.forEach(produto => {
         cardProduto(produto);
     });
 }
+
+continuar.addEventListener('click', ()=>{
+    window.location.href='../pages/pagamento.html'
+})
 
 
 preencherProduto();
