@@ -5,7 +5,7 @@ const sairDaConta = document.getElementById('sair')
 
 async function getClienteID(id) {
     try {
-        const url = `http://localhost:8080/v1/lanchonete/cliente/${id}`;
+        const url = `https://lanchonete-backend.onrender.com/v1/lanchonete/cliente/${id}`;
         const response = await fetch(url);
         if (!response.ok) {
             throw new Error('Network response was not ok ' + response.statusText);
@@ -38,7 +38,7 @@ if (infoCliente) {
 
 async function deleteCliete(id){
     try{
-        await fetch(`http://localhost:8080/v1/lanchonete/cliente/${id}`,{
+        await fetch(`https://lanchonete-backend.onrender.com/v1/lanchonete/cliente/${id}`,{
             method: 'DELETE'
         })
         console.log("Cliente excluído com sucesso")

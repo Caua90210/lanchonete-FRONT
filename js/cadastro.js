@@ -3,7 +3,7 @@
 
  
  async function postClient(cliente){
-   const url = 'http://localhost:8080/v1/lanchonete/cliente'
+   const url = 'https://lanchonete-backend.onrender.com/v1/lanchonete/cliente'
    const options = {
        method: 'POST',
        headers: {

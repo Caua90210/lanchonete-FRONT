@@ -7,7 +7,7 @@ let id = localStorage.getItem('idCliente')
 console.log(id);
 
 export async function getCliente(){
-    const url = `http://localhost:8080/v1/lanchonete/cliente/`
+    const url = `https://lanchonete-backend.onrender.com/v1/lanchonete/cliente/`
     const response = await fetch(url)
     const data = await response.json()
     return data.cliente

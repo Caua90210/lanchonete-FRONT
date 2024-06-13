@@ -1,7 +1,7 @@
 'use strict'
 
 export async function getProdutos(){
-    const url = 'http://localhost:8080/v1/lanchonete/produtos'
+    const url = 'https://lanchonete-backend.onrender.com/v1/lanchonete/produtos'
     const response = await fetch(url)
     const data = await response.json()
     
@@ -9,7 +9,7 @@ export async function getProdutos(){
 }
 
 export async function getProdutosID(id){
-    const url = `http://localhost:8080/v1/lanchonete/produto/${id}`
+    const url = `https://lanchonete-backend.onrender.com/v1/lanchonete/produto/${id}`
     const response = await fetch(url)
     console.log(response);
     const data = await response.json()
@@ -20,7 +20,7 @@ export async function getProdutosID(id){
 export async function createPedido(id_c, id_p, dados) {
     console.log(dados);
     
-    const url = `http://localhost:8080/v1/lanchonete/pedidos/${id_c}/${id_p}`;
+    const url = `https://lanchonete-backend.onrender.com/v1/lanchonete/pedidos/${id_c}/${id_p}`;
     
     const options = {
         method: 'POST',
@@ -51,7 +51,7 @@ export async function createPedido(id_c, id_p, dados) {
 
 
 export async function addCarrinho(id_pe, id_p, id_c) {
-    const url = `http://localhost:8080/v1/lanchonete/carrinho/${id_pe}/${id_p}/${id_c}`;
+    const url = `https://lanchonete-backend.onrender.com/v1/lanchonete/carrinho/${id_pe}/${id_p}/${id_c}`;
     
     const options = {
         method: 'POST',
@@ -74,7 +74,7 @@ export async function addCarrinho(id_pe, id_p, id_c) {
 }
 
 export async function getProdutosPorNome(nome){
-    const url = `http://localhost:8080/v1/lanchonete/produto/?nome=${nome}`
+    const url = `https://lanchonete-backend.onrender.com/v1/lanchonete/produto/?nome=${nome}`
     const response = await fetch(url)
     const data = await response.json()
     return data
