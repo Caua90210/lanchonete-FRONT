@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Italiana&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Italiana&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style/botao.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="../js/carrinho.js" type="module" defer></script>
     <script>
@@ -24,46 +25,67 @@
       </script>
     <title>Carrinho</title>
 </head>
-<body class="bg-gradient-to-b from-[#60AC25] to-white">
-    
+<body class="bg-gradient-to-t from-[#60AC25] to-white h-screen">
+     
+  <div class="pt-[20px] fixed left-[96%]">
+    <a class="text-[35px]" href="./home.html"><</a>
+  </div>
 
   
     <header>
-        <div class="pt-10 pl-10">
+        <div class="pt-12 pl-10">
             <h1 class="font-body text-6xl" >Sabor & Prazer</h1>
         </div>
     </header>
     <main class="flex flex-col justify-center items-center pt-28">
         <div class="flex flex-col">
             <div class="flex gap-x-[410px] text-4xl" >
-                <p>Produtos</p>
-                <p>Valor Total</p>
+                <p class="font-semibold italic">Carrinho:</p>
+        
             </div>
             <div class="flex gap-x-[530px] pt-10 text-4xl">
                 <div class="flex flex-col gap-[16px]" id="paiInfos"></div>
-                <p id="valor_total"></p>
+
             </div>
         </div>
-        <section class="flex gap-x-80">
 
-        
-         <div class="flex flex-col gap-[20px] pt-[80px] pr-[600px] pb-2">
-                     <h1 class="text-[25px]">Cupom de Desconto</h1>
-                     <input type="number" id="desc" class="w-full bg-[#60AC25] p-3 rounded-lg bg-white" placeholder="Digite algo...">
+        <!-- Inutil mas sem n fica do jeito certo -->
+        <section class="flex w-full ">
 
-                     
-                     <button class="pt-[10px] rounded-full text-2xl bg-[#60AC25]" id="desconto">Aplicar</button>
-                     <h1 class="text-4xl pt-[10px]">Prazo de Entrega</h1>
-                     <p></p>
-                    <button class="px-10 py-6 text-white bg-[#60AC25] rounded-lg text-4xl" id="continuar">Continuar</button>
+        <!-- caixa de cupom -->
+        <div class="absolute top-[280px] left-[70%]" >
+        <h1 class=" absolute left-[100px] text-[25px]">Cupom de Desconto</h1>
+         <div class=" pl-[80px] flex flex-row gap-[20px] pt-[50px] pb-2">
+                     <input type="number" id="desc" class="w-[300px] bg-[#60AC25] p-3 rounded-full bg-white" placeholder="Digite seu cupom...">
+                     <button class="pt-[10px] left-[100px] text-[20px] w-[80px] rounded-lg text-2xl bg-[#60AC25]" id="desconto">Aplicar</button>
         </div>
-        <div class="flex flex-col gap-[20px] px-28 py-10 mb-80 rounded-lg  bg-white shadow-md">
-            <h1 class="text-[25px] font-bold text-center">Resumo</h1>
-            <p >valor dos produtos:</p>
-            <p>Frete: R$5.00</p>
+      </div>
+        <!-- Caixinha de resumo -->
+        <div class="absolute fixed bg-gray-300 z-[-1] shadow-lg w-[500px] h-[298px] rounded-lg top-[400px] left-[71%]"></div>
+        <div class="absolute flex flex-col gap-[20px] shadow-lg px-28 py-10 mb-80 rounded-lg left-[72%] top-[410px] bg-white shadow-md">
+            <h1 class="text-[25px] font-bold text-center">Resumo dos valores:</h1>
+            <p>Subtotal:</p>
+            <p>Taxa de entrega:ㅤㅤㅤㅤㅤㅤㅤR$5.00</p>
             <p>Descontos: </p>
+            <div class="flex">
+            <p>TOTAL: ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ <p class="font-bold" id="valor_total"></p>
+          </div>
         </div>
       </section>
+
+      <div class="fixed  left-[81%] top-[750px]">
+        <button class="cta flex flex-row" id="continuar">
+          <span>Continuar</span>
+          <svg width="15px" height="10px" viewBox="0 0 13 10">
+            <path class="" d="M1,5 L11,5"></path>
+            <polyline points="8 1 12 5 8 9"></polyline>
+          </svg>
+        </button>
+      </div>
+
+      
+      
+
     </main>
 </body>
 </html>

@@ -36,8 +36,6 @@ function preencherCampos(produto){
     
 }
 
-
-
 comprar.addEventListener('click', async () => {
         try {
             let idC = localStorage.getItem('idCliente')
@@ -67,11 +65,11 @@ comprar.addEventListener('click', async () => {
             
             await addCarrinho(idPedido, idProduto, ue);
             
-            console.log(addCarrinho);
+            console.log(addCarrinho)
             
-            //window.location.href = './home.html';
+            window.location.href = './home.html'
         } catch (error) {
-            // console.error('Erro ao comprar:', error);
+            console.error('Erro ao comprar:', error)
         }
     });
 

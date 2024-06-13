@@ -1,6 +1,6 @@
 'use strict';
 
-import { getProdutos } from "./model/produto.js";
+import { getProdutos, getProdutosPorNome } from "./model/produto.js";
 import { getCategorias } from "./model/categoria.js";
 
 let id = localStorage.getItem('idCliente')
@@ -19,6 +19,7 @@ const container = document.getElementById('container');
 const categoriaContainer = document.getElementById('categorias');
 const perfil  = document.getElementById('perfil')
 const carrinho = document.getElementById('carrinho')
+const search = document.getElementById('search')
 
 function cardCategorias(categoria) {
     const card = document.createElement('div');
@@ -30,9 +31,9 @@ function cardCategorias(categoria) {
 }
 
 function criarCard(produto) {
-    container.classList.add('flex', 'justify-center');
+    container.classList.add('grid', 'grid-cols-4', 'gap-6', 'px-10', 'justify-center');
     const card = document.createElement('div');
-    card.classList.add('flex', 'flex-col', 'bg-white', 'rounded-lg', 'shadow-lg', 'mb-28', 'transform', 'transition', 'hover:scale-105', 'duration-300', 'max-w-sm', 'mx-auto', 'border-2', 'border-[#60AC25]');
+    card.classList.add('flex', 'flex-col', 'bg-white', 'rounded-lg', 'shadow-lg', 'mb-28', 'transform', 'transition', 'hover:scale-105', 'duration-300', 'max-w-sm', 'mx-auto', 'border-2', 'border-[#60AC25]', 'h-96');
     const nome = document.createElement('h2');
     nome.textContent = produto.nome;
     nome.classList.add('text-3xl', 'font-bold', 'text-gray-900', 'mb-2', 'text-center', 'font-fontPrincipal');
@@ -72,6 +73,42 @@ async function preencherContainerCategoria() {
     categorias.forEach(categoria => {
         cardCategorias(categoria);
     });
+}
+
+
+
+
+async function pesquisar(){
+    try {
+        const nomeProduto = await getProdutosPorNome(search.value)
+        console.log('Produtos encontrados:', nomeProduto)
+        const listaProdutos = nomeProduto.produto
+        apagarListaProdutos();
+
+        if (listaProdutos && listaProdutos.length > 0) {
+            listaProdutos.forEach(produto => {
+                console.log('Produto:', produto)
+                criarCard(produto);
+            });
+        } else {
+            console.log('Nenhum produto encontrado.')
+        }
+    } catch (error) {
+        console.error('Erro ao pesquisar produtos:', error)
+    }
+}
+
+search.addEventListener('keydown', (event)=>{
+    if(event.key === "Enter"){
+        event.preventDefault(); 
+        pesquisar();
+    }
+})
+
+function apagarListaProdutos(){
+    while (container.firstChild) {
+        container.removeChild(container.firstChild);
+    }
 }
 
 

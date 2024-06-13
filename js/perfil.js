@@ -1,5 +1,8 @@
 'use strict'
 
+const apagarConta = document.getElementById('apagarConta')
+const sairDaConta = document.getElementById('sair')
+
 async function getClienteID(id) {
     try {
         const url = `http://localhost:8080/v1/lanchonete/cliente/${id}`;
@@ -21,17 +24,33 @@ async function getClienteID(id) {
 }
 
 const indice = new URLSearchParams(window.location.search).get('id');
-console.log('Fetched ID from URL:', indice);  // Log the fetched ID
+console.log('Fetched ID from URL:', indice);
 
 const infoCliente = await getClienteID(indice);
-console.log('Fetched cliente info:', infoCliente);  // Log the fetched cliente info
+console.log('Fetched cliente info:', infoCliente); 
 
 if (infoCliente) {
     preencherCampos(infoCliente);
 } else {
     console.error('Failed to retrieve cliente information');
-    // Handle the case where cliente information couldn't be fetched (e.g., show an error message)
+    
 }
+
+async function deleteCliete(id){
+    try{
+        await fetch(`http://localhost:8080/v1/lanchonete/cliente/${id}`,{
+            method: 'DELETE'
+        })
+        console.log("Cliente excluído com sucesso")
+    } catch (error){
+        console.error('Erro ao excluir clente: ',error);
+    }
+}
+
+apagarConta.addEventListener('click', ()=>{
+     deleteCliete(infoCliente.id_cliente)
+     window.location.href='../login.html'
+})
 
 function preencherCampos(infoCliente) {
     const nome = document.getElementById('nome');
@@ -44,3 +63,31 @@ function preencherCampos(infoCliente) {
     email.value = infoCliente.email || ''
 
 }
+const cidade = document.getElementById('cidade')
+const cep = document.getElementById('cep')
+const rua = document.getElementById('rua')
+const bairro = document.getElementById('bairro')
+const numero = document.getElementById('numero')
+const complemento = document.getElementById('complemento')
+
+ function preencherCamposEndereco(infoCliente){
+    const endereco = infoCliente.endereco[0];
+    cidade.value = endereco.cidade || '';
+    cep.value = endereco.cep || ''
+    rua.value = endereco.rua || '';
+    bairro.value = endereco.bairro || '';
+    numero.value = endereco.numero || '';
+    complemento.value = endereco.complemento || ''
+ }
+
+ if (infoCliente) {
+    preencherCampos(infoCliente);
+    preencherCamposEndereco(infoCliente); // Adicione esta linha para preencher os campos de endereço
+} else {
+    console.error('Failed to retrieve cliente information');
+}
+
+sairDaConta.addEventListener('click', ()=>{
+    window.location.href='../login.html'
+})
+ preencherCamposEndereco()

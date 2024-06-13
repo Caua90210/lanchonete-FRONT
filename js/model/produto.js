@@ -34,9 +34,9 @@ export async function createPedido(id_c, id_p, dados) {
         const responseData = await response.json();
 
         if (response.ok) {
-            // Verifica se o pedido foi criado com sucesso
+            
             if (responseData.status && responseData.status_code === 201 && responseData.pedido.length > 0) {
-                // Retorna o ID do pedido criado
+            
                 return responseData.pedido[0].id_pedido;
             } else {
                 throw new Error(responseData.message || 'Erro ao criar pedido');
@@ -71,6 +71,13 @@ export async function addCarrinho(id_pe, id_p, id_c) {
     } catch (error) {
         console.error('Erro ao enviar solicitação:', error);
     }
+}
+
+export async function getProdutosPorNome(nome){
+    const url = `http://localhost:8080/v1/lanchonete/produto/?nome=${nome}`
+    const response = await fetch(url)
+    const data = await response.json()
+    return data
 }
 
 
